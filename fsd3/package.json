@@ -1,0 +1,39 @@
+{
+  "name": "wad-project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "mocha --recursive --exit --timeout 10000",
+    "build": "yarn run build",
+    "install-client": "yarn install",
+    "client": "cd .. && cd fsd2 && npm start",
+    "heroku-postbuild": "yarn run install-client && yarn run build",
+    "devStart": "npm run client",
+    "server": "node ./bin/www",
+    "start": "concurrently -n 'server,client' -c 'blue,green'  \"npm run server\" \"npm run client\""
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "concurrently": "^7.1.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "~5.1.7",
+    "mongoose-currency": "~0.2.0",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.4",
+    "node": "^17.4.0",
+    "redis": "^4.0.6",
+    "swagger-ui-express": "^4.3.0",
+    "yamljs": "^0.3.0",
+    "yarn": "^1.22.18"
+  }
+}
